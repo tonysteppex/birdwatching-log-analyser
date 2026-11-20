@@ -1,23 +1,34 @@
-bird = input("What bird did you observe today? ").strip()
-location = input("Where did you observe the bird? ").strip()
-date = input("What date did you observe the bird? ").strip()
+birds = ["Kingfisher", "Sparrow", "Eagle", "Parrot", "Owl"]
 
-if bird and location and date:
-    print("=" * 30)
-    print(f"{'SIGHTING RECORDED':^30}")
-    print("=" * 30)
+while True:
+    bird = input("\nWhat bird did you observe today? ").strip()
 
-    print(f"Bird: {bird}")
-    print(f"Location: {location}")
-    print(f"Date: {date}")
+    if bird:
+        birds.append(bird)
+        print(f"\nBirds: {birds}")
+        print(f"Number of birds observed: {len(birds)}")
+    else:
+        print("\nError: No bird name entered. Please try again.")
+        continue
 
-    print("\nThank you for using the Birdwatching Logbook!")
+    while True:
+        continue_logging = input(
+            "\nWould you like to log another bird? (yes/no): "
+        ).strip().lower()
 
-else:
-    print("\nERROR: Please provide all the required information (bird, location, and date).")
-    if not bird:
-        print("Bird name is missing.")
-    if not location:
-        print("Location is missing.")
-    if not date:
-        print("Date is missing.")
+        if continue_logging == "yes":
+            break
+        elif continue_logging == "no":
+            print("\nExiting Birdwatching Logbook...")
+            break
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+
+    if continue_logging == "no":
+        break
+
+print("\nFinal Birdwatching Logbook:")
+for bird in birds:
+    print(f"- {bird}")
+
+print(f"\nTotal birds recorded: {len(birds)}")
