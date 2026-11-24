@@ -1,0 +1,47 @@
+[
+    {
+        "bird": "Northern Cardinal",
+        "location": "Asokoro",
+        "date": "15-04-2023"
+    },
+    {
+        "bird": "Blue Jay",
+        "location": "Maitama",
+        "date": "20-04-2026"
+    },
+    {
+        "bird": "Kingfisher",
+        "location": "Gwarinpa",
+        "date": "22-11-2026",
+        "weather": "Rainy",
+        "time": "12:46PM"
+    },
+    {
+        "bird": "Pigeon",
+        "location": "Jabi",
+        "date": "12-11-2026",
+        "weather": "Sunny",
+        "time": "1:30PM"
+    },
+    {
+        "bird": "Kingfisher",
+        "location": "Jabi",
+        "date": "22-11-2026",
+        "weather": "Sunny",
+        "time": "1:23PM"
+    },
+    {
+        "bird": "Pigeon",
+        "location": "Gwarinpa",
+        "date": "11-11-2026",
+        "weather": "Windy",
+        "time": "11:46AM"
+    },
+    {
+        "bird": "Parrot",
+        "location": "Jos",
+        "date": "23-11-2026",
+        "weather": "Rainy",
+        "time": "5:55PM"
+    }
+]

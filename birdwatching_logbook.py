@@ -1,4 +1,11 @@
-sightings = []
+import json
+
+try:
+    with open("sightings.json", "r") as file:
+        sightings = json.load(file)
+
+except FileNotFoundError:
+    sightings = []
 
 print("==============================")
 print("     BIRDWATCHING LOGBOOK")
@@ -7,7 +14,7 @@ print("==============================")
 while True:
     bird = input("\nBirdname: ").strip()
     location = input("Observation location: ").strip()
-    date = input("Observation date (YYYY-MM-DD): ").strip()
+    date = input("Observation date (DD-MM-YYYY): ").strip()
     weather = input("Weather: ").strip()
     time = input("Observation time: ").strip()
 
@@ -22,7 +29,10 @@ while True:
 
         sightings.append(sighting)
 
-        print("\nObservation successfully recorded!")
+        with open("sightings.json", "w", encoding="utf-8") as file:
+            json.dump(sightings, file, indent=4)
+
+        print("\nObservation successfully recorded and saved!")
     else:
         print("\nError: Bird name, location, and date are required.")
 
@@ -46,8 +56,8 @@ for sighting in sightings:
     print(f"Bird: {sighting['bird']}")
     print(f"Location: {sighting['location']}")
     print(f"Date: {sighting['date']}")
-    print(f"Weather: {sighting['weather']}")
-    print(f"Time: {sighting['time']}")
+    print(f"Weather: {sighting.get('weather', 'Not recorded')}")
+    print(f"Time: {sighting.get('time', 'Not recorded')}")
 
 print("------------------------------")
 print(f"Total observations recorded: {len(sightings)}")
