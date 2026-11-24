@@ -1,34 +1,54 @@
-birds = ["Kingfisher", "Sparrow", "Eagle", "Parrot", "Owl"]
+sightings = []
+
+print("==============================")
+print("     BIRDWATCHING LOGBOOK")
+print("==============================")
 
 while True:
-    bird = input("\nWhat bird did you observe today? ").strip()
+    bird = input("\nBirdname: ").strip()
+    location = input("Observation location: ").strip()
+    date = input("Observation date (YYYY-MM-DD): ").strip()
+    weather = input("Weather: ").strip()
+    time = input("Observation time: ").strip()
 
-    if bird:
-        birds.append(bird)
-        print(f"\nBirds: {birds}")
-        print(f"Number of birds observed: {len(birds)}")
+    if bird and location and date:
+        sighting = {
+            "bird": bird,
+            "location": location,
+            "date": date,
+            "weather": weather,
+            "time": time
+        }
+
+        sightings.append(sighting)
+
+        print("\nObservation successfully recorded!")
     else:
-        print("\nError: No bird name entered. Please try again.")
-        continue
+        print("\nError: Bird name, location, and date are required.")
 
     while True:
-        continue_logging = input(
-            "\nWould you like to log another bird? (yes/no): "
-        ).strip().lower()
+        answer = input("\nDo you want to add another observation? (yes/no): ").strip().lower()
 
-        if continue_logging == "yes":
+        if answer == "yes":
             break
-        elif continue_logging == "no":
-            print("\nExiting Birdwatching Logbook...")
+        elif answer == "no":
             break
         else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
+            print("Invalid response. Please enter 'yes' or 'no'.")
 
-    if continue_logging == "no":
+    if answer == "no":
         break
 
-print("\nFinal Birdwatching Logbook:")
-for bird in birds:
-    print(f"- {bird}")
+print("\n========== YOUR OBSERVATIONS ==========")
 
-print(f"\nTotal birds recorded: {len(birds)}")
+for sighting in sightings:
+    print("------------------------------")
+    print(f"Bird: {sighting['bird']}")
+    print(f"Location: {sighting['location']}")
+    print(f"Date: {sighting['date']}")
+    print(f"Weather: {sighting['weather']}")
+    print(f"Time: {sighting['time']}")
+
+print("------------------------------")
+print(f"Total observations recorded: {len(sightings)}")
+print("Thank you for using the Birdwatching Logbook!")
