@@ -64,3 +64,23 @@ len(sightings): Counts the observations.
 The first time you run the program, sightings.json won't exist. Python would normally produce a FileNotFoundError.
 We use except to handle that situation and start with an empty list instead.
 10. .get() allows you to provide a default value when a key doesn't exist.
+
+###Functions (Functions allow us to separate these operations into reusable blocks.)
+Code organisation
+1. def: Tells Python you're defining a function
+2. greet_user: Function name
+3. (): Holds optional information passed into the function
+4. : - Starts the function body
+5. greet_user(): Calls or executes the function
+6. Indented code: Instructions belonging to the function.
+7. return sends information back so you can use it elsewhere in your program.
+
+####Functions with multiple parameters
+multiple parameters, arguments and variable scope. These three concepts help us turn the Birdwatching Logbook into a properly organised application.
+1. Local variable: Exists inside the function where it was created.
+2. Global variable: Can be accessed throughout the module.
+3. A. Creating a dictionary inside a function
+The dictionary stores all five pieces of information together.
+B. Returning the dictionary
+return sighting sends the complete dictionary back to the calling code.
+C. Storing the result: sighting = record_bird(...)
